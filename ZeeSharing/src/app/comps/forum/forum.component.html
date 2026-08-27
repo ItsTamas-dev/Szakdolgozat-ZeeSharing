@@ -1,0 +1,23 @@
+<h2>ZeeSharing Forum</h2>
+<div class="forum-container">
+  <div class="forum" #scrollDiv (scroll)="onScroll($event)">
+    <div *ngFor="let post of posts" class="forum-post">
+      <div class="post-content">
+        <span>{{ post.username }}</span>
+        <p>{{ post.content}}</p>
+        <div *ngIf="post.image != 'NoImage'" class="img">
+          <img [src]="post.image">
+        </div>
+      </div>
+      <div class="post-time">{{ post.createdAt.toDate() | date:'short' }}</div>
+      <span *ngIf="isAdmin" class="admin" (click)="deleteForumPost(post)"><fa-icon [icon]="faX"></fa-icon></span>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+</div>
+<div *ngIf="userData['type'] != 'def_user'" class="inputs">
+  <input [(ngModel)]="newMessage" placeholder="Type a message" class="tyMus" />
+  <button (click)="triggerImgInput()"><fa-icon [icon]="faImage"></fa-icon></button>
+  <button class="last" (click)="sendMessage()"><fa-icon [icon]="faPaperPlane"></fa-icon></button>
+  <input type="file" #ImgInput accept=".png, .jpg, .jpeg" (change)="onImgSelected($event)" style="display: none;" />
+</div>

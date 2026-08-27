@@ -1,0 +1,151 @@
+h2 {
+  margin-bottom: 1em;
+  cursor: default;
+}
+
+.forum-container {
+  height: calc(100vh - 330px);
+  position: relative;
+}
+
+.forum {
+  max-height: 100%;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.forum-post {
+  background-color: #183D3D;
+  padding: 1em;
+  border-radius: 1em;
+  position: relative;
+}
+
+.forum-post .post-content {
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.forum-post .post-content span {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1em;
+  display: block;
+  font-size: 1.2em;
+  cursor: default;
+}
+
+.forum-post .post-content p {
+  color: #ffffff;
+  margin-bottom: 1em;
+  cursor: default;
+}
+
+.post-time {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: gray;
+  cursor: default;
+}
+
+.admin {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  transition: all 0.3s ease;
+}
+
+.admin:hover {
+  color: #040D12;
+  cursor: pointer;
+}
+
+.img {
+  margin-top: 1em;
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.img img {
+  max-height: 500px;
+  max-width: 500px;
+  object-fit: cover;
+  border-radius: 1em;
+}
+
+.forum::-webkit-scrollbar {
+  width: 8px;
+}
+
+.forum::-webkit-scrollbar-thumb {
+  background-color: #5C8374;
+  border-radius: 4px;
+}
+
+.forum::-webkit-scrollbar-thumb:hover {
+  background-color: #5C8374;
+}
+
+.inputs {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.tyMus {
+  width: calc(100% - 80px);
+  height: 40px;
+  border: none;
+  border-radius: 1em 0 0 1em;
+  padding-left: 1em;
+  background-color: #183D3D;
+  color: #ffffff;
+}
+
+button {
+  height: 40px;
+  width: 40px;
+  border: none;
+  background-color: #183D3D;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  color: #040D12;
+}
+
+.tyMus:focus {
+  outline: none;
+  border: none;
+}
+
+.last {
+  border-radius: 0 1em 1em 0;
+}
+
+.loading {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .forum-container {
+    height: calc(100vh - 363px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .post-time {
+    font-size: 12px;
+  }
+}

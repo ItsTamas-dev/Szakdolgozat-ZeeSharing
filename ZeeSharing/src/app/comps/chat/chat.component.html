@@ -1,0 +1,51 @@
+<h2>{{receiver}}</h2>
+<div class="chat-container">
+    <div #scrollContainer class="chat">
+        <div class="msgs">
+            <div *ngFor="let msg of messages" [class.me]="msg.sender === sender" [class.them]="msg.sender !== sender">
+                <div class="msg">
+                    <div class="img">
+                        <img *ngIf="msg.sender !== sender" [src]="receiverData?.picture" alt="Receiver Image"
+                            class="profile-img">
+                    </div>
+                    <div class="m">
+                        <div *ngIf="msg.type == 'msg'" class="msgType">
+                            <span class="message-text">{{ msg.message }}</span>
+                            <span class="time">{{ msg.time?.toDate() | date:'shortTime' }}</span>
+                        </div>
+                        <div *ngIf="msg.type == 'music'" class="music">
+                            <div class="msg-img">
+                                <img [src]="msg.message.img" class="profile-img">
+                            </div>
+                            <div class="music_data">
+                                <h2>{{msg.message.name}}</h2>
+                                <span>{{msg.message.performer}}</span>
+                            </div>
+                            <button (click)="play(msg.message)"><fa-icon [icon]="faPlay"></fa-icon></button>
+                        </div>
+                    </div>
+                    <div class="img">
+                        <img *ngIf="msg.sender === sender" [src]="userData.picture" alt="Sender Image"
+                            class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="chat-input">
+    <div class="se" *ngIf="isShowMusic">
+        <div class="result">
+            <label *ngFor="let music of searchResultsMusic" (click)="sendResMusic(music)">
+                🎵 {{ music['name'] }} - {{ music['performer'] }}
+            </label>
+            <label *ngFor="let music of searchResultsPodcast" (click)="sendResMusic(music)">
+                🎤 {{ music['name'] }} - {{ music['performer'] }}
+            </label>
+        </div>
+        <input [(ngModel)]="searchText" placeholder="Type a title" class="seMusc" (input)="onSearchChange()" />
+    </div>
+    <input [(ngModel)]="newMessage" placeholder="Type a message" class="tyMus" />
+    <button (click)="showMusic()"><fa-icon [icon]="faMusic"></fa-icon></button>
+    <button class="last" (click)="sendMessage()"><fa-icon [icon]="faPaperPlane"></fa-icon></button>
+</div>

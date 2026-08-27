@@ -1,0 +1,352 @@
+h2 {
+  margin-bottom: 1em;
+  cursor: default;
+}
+
+.chat-container {
+  height: calc(100vh - 330px);
+  position: relative;
+}
+
+.chat {
+  max-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.chat::-webkit-scrollbar {
+  width: 0;
+}
+
+.chat .msgs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.me {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.them {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+
+.me .msg {
+  max-width: 60%;
+  text-align: justify;
+}
+
+.them .msg {
+  max-width: 60%;
+  text-align: justify;
+}
+
+.msg .img img {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.me .m {
+  background-color: #183D3D;
+  padding: 1em;
+  border-radius: 15px 15px 0px 15px;
+}
+
+.them .m {
+  background-color: #183D3D;
+  padding: 1em;
+  border-radius: 15px 15px 15px 0px;
+}
+
+.msg {
+  display: flex;
+  gap: 1em;
+  min-height: 50px;
+}
+
+.img {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.msgType {
+  display: flex;
+  flex-direction: column;
+}
+
+.time {
+  font-size: 15px;
+  color: black;
+}
+
+.me .m .time {
+  text-align: right;
+}
+
+.bottom {
+  width: 100%;
+  text-align: right;
+}
+
+.bottom button {
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bottom button fa-icon {
+  font-size: 30px;
+}
+
+.bottom button:hover {
+  color: #5C8374;
+}
+
+.chat-input {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.tyMus {
+  width: calc(100% - 80px);
+  height: 40px;
+  border: none;
+  border-radius: 1em 0 0 1em;
+  padding-left: 1em;
+  background-color: #183D3D;
+  color: #ffffff;
+}
+
+.tyMus:focus {
+  outline: none;
+  border: none;
+}
+
+button {
+  height: 40px;
+  width: 40px;
+  border: none;
+  background-color: #183D3D;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  color: #040D12;
+}
+
+.last {
+  border-radius: 0 1em 1em 0;
+}
+
+.se {
+  position: absolute;
+  bottom: 60px;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 300px;
+  border-radius: 1em;
+}
+
+.result {
+  height: 240px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.se input {
+  height: 40px;
+}
+
+.result::-webkit-scrollbar {
+  width: 0px;
+}
+
+.se input {
+  width: calc(100% - 15px);
+  background-color: #183D3D;
+  border: none;
+  color: #ffffff;
+  border-radius: 1em;
+  padding-left: 15px;
+}
+
+.se input:focus {
+  outline: none;
+  border: none;
+}
+
+.music {
+  width: 400px;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.music .msg-img {
+  height: 130px;
+  width: 130px;
+}
+
+.music .msg-img img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 1em;
+}
+
+.music_data {
+  width: calc(100% - 130px);
+}
+
+.music_data h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.music button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.music button fa-icon {
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .music {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .music {
+    width: 300px;
+  }
+
+  .music h2 {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .music {
+    width: 250px;
+  }
+
+  .music .msg-img img,
+  .music .msg-img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .music_data {
+    width: calc(100% - 100px);
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .music {
+    width: 210px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .chat-container {
+    height: calc(100vh - 363px);
+  }
+
+  .music {
+    width: 300px;
+  }
+
+  .music .msg-img img,
+  .music .msg-img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .music_data {
+    width: calc(100% - 100px);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .music {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .chat-container {
+    height: calc(100vh - 363px);
+  }
+
+  .music .msg-img img,
+  .music .msg-img {
+    height: 75px;
+    width: 75px;
+  }
+
+  .music_data {
+    width: calc(100% - 75px);
+  }
+
+  .me .msg {
+    max-width: 90%;
+    text-align: justify;
+  }
+
+  .them .msg {
+    max-width: 90%;
+    text-align: justify;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .chat-container {
+    height: calc(100vh - 363px);
+  }
+
+  .music .msg-img img,
+  .music .msg-img {
+    height: 75px;
+    width: 75px;
+  }
+
+  .music_data {
+    width: calc(100% - 75px);
+  }
+
+  .me .msg {
+    max-width: 100%;
+    text-align: justify;
+  }
+
+  .them .msg {
+    max-width: 100%;
+    text-align: justify;
+  }
+}

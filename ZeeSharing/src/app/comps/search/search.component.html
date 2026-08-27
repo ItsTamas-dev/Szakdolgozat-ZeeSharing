@@ -1,0 +1,152 @@
+<div class="search-container">
+  <div class="search">
+    <div class="search-bar">
+      <button><fa-icon [icon]="faSearch"></fa-icon></button>
+      <input type="text" [(ngModel)]="searchText" (input)="onSearchChange()" placeholder="Search..." />
+    </div>
+    <div class="result">
+      <div class="result-bar"
+        *ngIf="searchResults.musics.length || searchResults.performers.length || searchResults.users.length || searchResults.tagMusics.length">
+        <div class="item" *ngIf="searchResults.musics.length">
+          <h3>Musics</h3>
+          <ul>
+            <li *ngFor="let music of searchResults.musics" (click)="showResMusic(music)">
+              🎵 {{ music['name'] }} - {{ music['performer'] }}
+            </li>
+          </ul>
+        </div>
+        <div class="item" *ngIf="searchResults.podcast.length">
+          <h3>Podcast</h3>
+          <ul>
+            <li *ngFor="let music of searchResults.podcast" (click)="showResMusic(music)">
+              🎵 {{ music['name'] }} - {{ music['performer'] }}
+            </li>
+          </ul>
+        </div>
+        <div class="item" *ngIf="searchResults.performers.length">
+          <h3>Performers</h3>
+          <ul>
+            <li *ngFor="let performer of searchResults.performers" (click)="showResPerformer(performer)">
+              🎤 {{ performer['username'] }}
+            </li>
+          </ul>
+        </div>
+        <div class="item" *ngIf="searchResults.users.length">
+          <h3>Users</h3>
+          <ul>
+            <li *ngFor="let user of searchResults.users" (click)="showResUser(user)">
+              👤 {{ user['username'] }}
+            </li>
+          </ul>
+        </div>
+        <div class="item" *ngIf="searchResults.tagMusics.length">
+          <h3>Tags</h3>
+          <ul>
+            <li *ngFor="let music of searchResults.tagMusics" (click)="showResTags(music['tag'])">
+              🏷️ {{ music['tag'] }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="all_result">
+      <div *ngIf="isResPerformerNotEmpty()">
+        <div class="performer_data">
+          <div class="performer_img">
+            <img [src]="ResPerformer['picture']" alt="" />
+          </div>
+          <div class="data">
+            <h2>{{ResPerformer['username']}}</h2>
+            <span class="type">{{ResPerformer['type']}}</span>
+            <p>
+              <span *ngFor="let tag of tagsSet">
+                {{tag}}
+              </span>
+            </p>
+            <div class="buttons">
+              <button class="play" (click)="onSongSelected()">Play all</button>
+              <button class="unfollow" *ngIf="isFollow" (click)="follow(ResPerformer['username'], 0)">Unfollow</button>
+              <button class="follow" *ngIf="!isFollow" (click)="follow(ResPerformer['username'], 1)">Follow</button>
+            </div>
+          </div>
+        </div>
+        <div class="performer_musics">
+          <h2>Audio</h2>
+          <div class="musics">
+            <div *ngFor="let music of showMusics" class="music" (click)="onOneClicked(music)">
+              <div class="img">
+                <img [src]="music['img']" alt="" />
+              </div>
+              <span>{{music["name"]}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isResTagNotEmpty()">
+        <div class="tag_musics">
+          <h2>Tag: {{ResTag}}</h2>
+          <div class="musics">
+            <div *ngFor="let music of showTagMusics" class="music">
+              <div (click)="onOneClicked(music)" class="mu">
+                <div class="img">
+                  <img [src]="music['img']" alt="" />
+                </div>
+                <div class="data">
+                  <span>{{music["name"]}}</span><br>
+                  <span>{{music["performer"]}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="isResUserNotEmpty()">
+        <div class="performer">
+          <div class="performer_data">
+            <div class="performer_img">
+              <img [src]="ResUser['picture']" alt="" />
+            </div>
+            <div class="data">
+              <h2>{{ResUser['username']}}</h2>
+              <span>User</span>
+              <div class="buttons">
+                <button class="unfollow" *ngIf="isFriend == 0" (click)="request()">Friend request</button>
+                <button class="unfollow" *ngIf="isFriend == 1" (click)="request()">Delete request</button>
+                <button class="follow" *ngIf="isFriend == 2" (click)="request()">Delete friend</button>
+              </div>
+            </div>
+          </div>
+          <div class="performer_musics">
+            <h2>User's Playlists</h2>
+            <div class="user_lists">
+              <div *ngFor="let list of userPlaylists" class="user_list">
+                <div class="head">
+                  <span>{{ list['title'] }}</span>
+                  <div class="user_buttons">
+                    <button class="user_follow" (click)="addList(list['title'])">Add to List</button>
+                    <button (click)="toggleMusicVisibility(list['title'])" class="list_icon"><fa-icon
+                        [icon]="list['showMusics'] ? faArrowUp : faArrowDown"></fa-icon></button>
+                  </div>
+                </div>
+                <div class="user_musics" *ngIf="list['showMusics']">
+                  <div class="musics" *ngFor="let music of list['songs']; let i = index ">
+                    <div class="music">
+                      <div class="mu" (click)="onOneClicked(music)">
+                        <div class="mu_img">
+                          <img [src]="music.img" alt="Now Playing Image" class="">
+                        </div>
+                        <div class="mu_data">
+                          <span>{{ music.name }}</span>
+                          <span class="perfor">{{ music.performer }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

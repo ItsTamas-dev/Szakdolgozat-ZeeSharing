@@ -1,0 +1,291 @@
+.search-container {
+    height: calc(100vh - 240px);
+    position: relative;
+}
+
+.search {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.search::-webkit-scrollbar,
+.result-bar::-webkit-scrollbar {
+    width: 0px;
+}
+
+.search-bar {
+    width: 100%;
+    height: 50px;
+}
+
+.search-bar button {
+    height: 50px;
+    width: 50px;
+    background-color: #183D3D;
+    border: none;
+    border-radius: 1em 0 0 1em;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.search-bar input {
+    height: 50px;
+    background-color: #183D3D;
+    border: none;
+    border-radius: 0 1em 1em 0;
+    color: #ffffff;
+    width: calc(100% - 50px);
+    font-size: 15px;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border: none;
+}
+
+.result {
+    width: 100%;
+    position: relative;
+}
+
+.result-bar {
+    position: absolute;
+    top: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 150px;
+    border-radius: 1em;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.result-bar .item {
+    padding: 1em;
+}
+
+.result-bar .item li {
+    list-style: none;
+    cursor: pointer;
+}
+
+.all_result {
+    width: 100%;
+    padding: 1em;
+}
+
+.performer_data {
+    width: 100%;
+    display: flex;
+}
+
+.performer_data .performer_img {
+    width: 300px;
+    height: 300px;
+}
+
+.performer_data .performer_img img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+.performer_data .data {
+    padding-left: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.performer_data .buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.performer_data button {
+    width: 100px;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    transition: all 0.3s ease;
+    border: none;
+    background-color: #183D3D;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.performer_data button:hover {
+    background-color: #5C8374;
+}
+
+.performer_data .type {
+    text-transform: uppercase;
+}
+
+.performer_musics {
+    margin-top: 3em;
+}
+
+.performer_musics .musics {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.performer_musics .musics .music {
+    flex-basis: 200;
+    border-radius: 1em;
+    width: 300px;
+    padding: 0.5em;
+    transition: all 0.3s ease;
+
+    display: flex;
+}
+
+.performer_musics .musics .music span {
+    max-width: 75%;
+    margin: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.performer_musics h2,
+.tag_musics h2 {
+    margin: 1em 0;
+}
+
+.musics .music {}
+
+.musics .mu {
+    display: flex;
+    gap: 1em;
+}
+
+.musics .music .img {
+    width: 100px;
+    height: 100px;
+}
+
+.musics .music .img img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+.musics .music:hover {
+    background-color: #183D3D;
+    cursor: pointer;
+}
+
+.m_data {
+    width: 100%;
+}
+
+.tag_musics .music {
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.user_follow {
+    min-width: 100px;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user_follow:hover {
+    color: #5C8374;
+}
+
+.list_icon {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 10px;
+}
+
+.list_icon fa-icon {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.user_musics,
+.user_musics .musics,
+.user_musics .musics .music {
+    width: 100%;
+}
+
+.user_musics .musics .music .mu {
+    width: 100%;
+    display: flex;
+}
+
+.user_musics .musics .music .mu .mu_data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mu .mu_img {
+    width: 100px;
+    height: 100px;
+}
+
+.mu .mu_img img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.perfor {
+    color: #183D3D;
+}
+
+.user_list .head {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 900px) {
+    .search-container {
+        height: calc(100vh - 283px);
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .performer_data .performer_img img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .performer_data .performer_img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .performer_data .performer_img img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .performer_data .performer_img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .performer_data .buttons {
+        flex-direction: column;
+    }
+}

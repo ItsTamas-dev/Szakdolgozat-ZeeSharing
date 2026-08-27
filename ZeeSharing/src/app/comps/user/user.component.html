@@ -1,0 +1,72 @@
+<h2>{{userData["username"]}}</h2>
+<div class="user-container">
+  <div class="user">
+    <div class="top">
+      <div class="chPWD">
+        <button (click)="changePassword()" class="action-btn">Change Password</button>
+      </div>
+      <div class="chIMG">
+        <input id="ImgInput" type="file" accept="image/*" (change)="onFileSelected($event)" hidden>
+        <label for="ImgInput" class="custom-file-upload">Change Profile Image</label>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="DeleFR">
+        <h3>Delete Friend Or Request</h3>
+        <select class="friend-select" [(ngModel)]="selectedFriendId">
+          <option *ngFor="let friend of friends" [value]="friend.name">
+            {{friend.name}}
+          </option>
+        </select>
+        <button (click)="removeSelectedFriend()" [disabled]="!selectedFriendId" class="action-btn">
+          Delete
+        </button>
+      </div>
+      <div class="DelePL">
+        <h3>Delete Play List</h3>
+        <select class="friend-select" [(ngModel)]="selectedList">
+          <option *ngFor="let friend of playlists" [value]="friend.title">
+            {{friend.title}}
+          </option>
+        </select>
+        <button (click)="removeSelectedFList()" [disabled]="!selectedList" class="action-btn">
+          Delete
+        </button>
+      </div>
+      <div class="DeleFol">
+        <h3>Delete Following</h3>
+        <select class="friend-select" [(ngModel)]="selectedfollow">
+          <option *ngFor="let friend of following" [value]="friend.name">
+            {{friend.name}}
+          </option>
+        </select>
+        <button (click)="removeSelectedFollow()" [disabled]="!selectedfollow" class="action-btn">
+          Delete
+        </button>
+      </div>
+    </div>
+    <h2>Listening Stats </h2>
+    <div class="grafikonok">
+      <div style="width: 45%">
+        <h3>7-Day Artist Statistics</h3>
+        <canvas baseChart [data]="artistChartData" [options]="chartOptions" [type]="'bar'">
+        </canvas>
+      </div>
+      <div style="width: 45%">
+        <h3>7-Day Tag Statistics</h3>
+        <canvas baseChart [data]="tagChartData" [options]="chartOptions" [type]="'bar'">
+        </canvas>
+      </div>
+      <div style="width: 45%">
+        <h3>Top 7 Artists</h3>
+        <canvas baseChart [data]="topArtistChartData" [options]="chartOptions" [type]="'bar'">
+        </canvas>
+      </div>
+      <div style="width: 45%">
+        <h3>Top 7 tag</h3>
+        <canvas baseChart [data]="topTagChartData" [options]="chartOptions" [type]="'bar'">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

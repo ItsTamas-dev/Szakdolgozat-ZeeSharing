@@ -1,0 +1,47 @@
+<div class="user-container">
+  <h2>Users</h2>
+  <div class="add-admin">
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Admin</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.admin ? '✔️' : '❌' }}</td>
+          <td>
+            <button (click)="toggleAdmin(user)">
+              {{ user.admin ? 'Remove admin role' : 'Add admin role' }}
+            </button>
+            <button class="danger" (click)="deleteUser(user)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h2>Forum posts</h2>
+  <div class="delete-forum">
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Message</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of forumPosts">
+          <td>{{ post.username }}</td>
+          <td>{{ post.content }}</td>
+          <td>{{ post.createdAt.toDate() | date: 'short' }}</td>
+          <td><button class="danger" (click)="deleteForumPost(post)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

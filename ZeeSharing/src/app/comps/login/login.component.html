@@ -1,0 +1,28 @@
+<div class="login-page">
+  <div class="container">
+    <form (ngSubmit)="onLogin()">
+      <h1>LOGIN</h1>
+      <div class="form-control">
+        <input type="email" id="email" [(ngModel)]="email" name="email" required placeholder="Email">
+        <span></span>
+      </div>
+      <div class="form-control">
+        <input type="password" id="password" [(ngModel)]="password" name="password" required placeholder="Password">
+        <span></span>
+      </div>
+      <p class="forgot-password-link">
+        <a (click)="onForgotPassword()">Forgot Password?</a>
+      </p>
+      <p *ngIf="loginError" class="error">{{ loginError }}</p>
+      <div class="links">
+        <button *ngIf="isOnline" type="submit">Login</button>
+        <button *ngIf="!isOnline" (click)="navigateOfflineMain()">Offline</button>
+        <p class="register-link">
+          New to ZeeSharing?
+          <a *ngIf="isOnline" (click)="navigateToRegister()">Create an account</a>
+          <a *ngIf="!isOnline">Create an account</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

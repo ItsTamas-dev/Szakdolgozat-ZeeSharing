@@ -1,0 +1,147 @@
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+    color: #ffffff;
+}
+
+.container {
+    background-color: #040D12;
+    width: 500px;
+    max-width: 100%;
+    min-height: 550px;
+    border-radius: 25px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 0px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    margin: 0;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.form-control {
+    width: 75%;
+    position: relative;
+}
+
+.form-control span {
+    position: absolute;
+    border-bottom: 3px solid #183D3D;
+    left: 0;
+    bottom: 8px;
+    width: 0%;
+    transition: all 0.3s ease;
+}
+
+.form-control input:focus~span {
+    width: 100%;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    background-color: #040D12;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    padding: 12px 0;
+    margin: 8px 0;
+    width: 100%;
+    color: #ffffff;
+}
+
+.error {
+    color: #93B1A6;
+    position: absolute;
+    top: 10px;
+
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #183D3D;
+    background-color: #183D3D;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 20px;
+    padding: 12px 80px;
+    text-transform: capitalize;
+    cursor: pointer;
+    width: 230px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #5C8374;
+}
+
+.login-link {
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #183D3D;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-link a:hover {
+    color: #5C8374;
+}
+
+select {
+    width: 100%;
+    margin-top: 1em;
+    background-color: #040D12;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.form-control input:focus~span {
+    width: 100%;
+}
+
+.links {
+    position: absolute;
+    bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        background-color: transparent;
+        width: 100%;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"],
+    select,
+    option {
+        background-color: transparent;
+    }
+
+    option {
+        background-color: #040D12;
+    }
+
+}

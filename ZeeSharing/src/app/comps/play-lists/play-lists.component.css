@@ -1,0 +1,162 @@
+.playList,
+.followList {
+    padding: 1em;
+}
+
+#follow {
+    margin-top: 2em;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.icons {
+    display: flex;
+    gap: 1.5em;
+    font-size: 1.2em;
+}
+
+.icons fa-icon {
+    cursor: pointer;
+}
+
+.icons button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#trash {
+    transition: all 0.3s ease;
+}
+
+.icons button:hover,
+#trash:hover {
+    color: #183D3D;
+}
+
+#red {
+    color: #992a2a;
+}
+
+#green {
+    color: #197431;
+}
+
+#yellow {
+    color: #8d8f13;
+}
+
+.musics {
+    margin-top: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 2px solid rgba(24, 61, 61, 0.3);
+}
+
+.item {
+    display: flex;
+    gap: 1em;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    position: relative;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.item:hover {
+    background-color: rgba(24, 61, 61, 0.3);
+    cursor: pointer;
+}
+
+.item .img {
+    height: 100px;
+    width: 100px;
+}
+
+.item .img img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+.item .data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.performer {
+    margin-top: 10px;
+    color: #183D3D;
+}
+
+.song-name {
+    max-width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.delete {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.delete:hover {
+    color: #183D3D;
+}
+
+@media only screen and (max-width: 1200px) {
+    h2 {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+    }
+
+    .data * {
+        font-size: 1em;
+    }
+
+    .item .img {
+        height: 75px;
+        width: 75px;
+    }
+
+    .item .img img {
+        height: 75px;
+        width: 75px;
+        object-fit: cover;
+        border-radius: 1em;
+    }
+
+    .item {
+        padding: 0.5em 0;
+    }
+
+    .song-name {
+        max-width: 50%;
+    }
+
+    .playList,
+    .followList {
+        padding: 0.5em;
+    }
+}

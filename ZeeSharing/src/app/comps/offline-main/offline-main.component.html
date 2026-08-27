@@ -1,0 +1,52 @@
+<button class="logout" (click)="logout()"><fa-icon [icon]="faSignOut"></fa-icon></button>
+<div class="main">
+  <h2>Downloaded Audio</h2>
+  <div class="allsong">
+    <div *ngFor="let song of musicFiles; let i = index" class="item">
+      <div class="img">
+        <img [src]="song.imageUrl" alt="" (click)="playMusic(i)">
+      </div>
+      <div class="data">
+        <h3>{{song.name}}</h3>
+        <span>{{song.performer}}</span>
+        <button (click)="deleteMusic(song.name)"><fa-icon [icon]="faTrash"></fa-icon></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="player">
+  <div class="m_data">
+    <img *ngIf="currentMusic" [src]="currentMusic.imageUrl" alt="Now Playing Image" class="music-image">
+    <div *ngIf="currentMusic" class="m_inf">
+      <p class="name">{{ currentMusic.name }}</p>
+      <p class="performer">{{ currentMusic.performer }}</p>
+    </div>
+  </div>
+  <div class="m_btns">
+    <div class="top">
+      <div class="icons">
+        <button (click)="toggleRandom()" class="icon random" [id]="isRandom ? 'toggle' : ''"><fa-icon
+            [icon]="faRandom"></fa-icon></button>
+        <button (click)="playPrevious()" class="icon"><fa-icon [icon]="faBackward"></fa-icon></button>
+        <button (click)="togglePlayPause()" class="icon"><fa-icon
+            [icon]="isPlaying ? faPause : faPlay"></fa-icon></button>
+        <button (click)="playNext()" class="icon"><fa-icon [icon]="faForward"></fa-icon></button>
+        <button (click)="toggleReplay()" class="icon random"
+          [id]="isReplay === 1 ? 'tog' : isReplay === 2 ? 'toggle' : ''"><fa-icon
+            [icon]="faRotateBack"></fa-icon></button>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="slide">
+        <a>{{ formatTime(audioCurrentTime) }}</a>
+        <input type="range" min="0" [max]="audioDuration" [value]="audioCurrentTime" (input)="seekMusic($event)" />
+        <a>{{ formatTime(audioDuration) }}</a>
+      </div>
+    </div>
+  </div>
+  <div class="volumediv">
+    <button (click)="toggleVolume()" class="icon"><fa-icon
+        [icon]="volume > 0.5 ? faVolumeHigh : volume > 0 ? faVolumeLow : faVolumeXmark"></fa-icon></button>
+    <input type="range" id="volume" min="0" max="1" step="0.1" [(ngModel)]="volume" (input)="setVolume()" />
+  </div>
+</div>

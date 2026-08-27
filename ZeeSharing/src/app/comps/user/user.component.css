@@ -1,0 +1,87 @@
+h2 {
+  margin-bottom: 1em;
+  cursor: default;
+}
+
+.user-container {
+  height: calc(100vh - 330px);
+  position: relative;
+}
+
+.user {
+  max-height: 100%;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.user::-webkit-scrollbar {
+  width: 0px;
+}
+
+.top,
+.bottom {
+  width: 100%;
+  display: flex;
+  margin-bottom: 2em;
+}
+
+.chPWD,
+.DeleFR,
+.DelePL {
+  border-right: 1px solid #183D3D;
+}
+
+.chPWD,
+.chIMG {
+  width: 50%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chPWD button,
+.chIMG label {
+  cursor: pointer;
+  background-color: #183D3D;
+  border: none;
+  color: #ffffff;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+
+.DeleFR,
+.DelePL,
+.DeleFol {
+  width: 33.3%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.chPWD button:hover,
+.chIMG label:hover {
+  background-color: #5C8374;
+}
+
+.grafikonok {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+
+@media only screen and (max-width: 900px) {
+  .user-container {
+    height: calc(100vh - 363px);
+  }
+}

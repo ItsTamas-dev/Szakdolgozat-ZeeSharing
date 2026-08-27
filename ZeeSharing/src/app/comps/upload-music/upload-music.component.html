@@ -1,0 +1,45 @@
+<h2>Upload MP3 file</h2>
+<div class="file-upload">
+  <form (submit)="onFileUpload($event)">
+    <div class="inputs">
+      <div class="File-music">
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".mp3" hidden />
+        <label for="fileInput" class="custom-file-upload">{{selectedFile ? selectedFile.name : 'Upload MP3'}}</label>
+      </div>
+      <div class="File-img">
+        <input type="file" id="ImgInput" accept=".png, .jpg, .jpeg" (change)="onImgSelected($event)" hidden />
+        <label for="ImgInput" class="custom-file-upload">{{selectedImg ? selectedImg.name : 'Upload IMG'}}</label>
+      </div>
+      <div class="File-title">
+        <input type="text" name="title" placeholder="Music Title" id="MusicTitle" [(ngModel)]="title" required>
+      </div>
+    </div>
+    <div class="upload">
+      <button [id]="!selectedFile ? 'not' : ''" type="submit" [disabled]="!selectedFile"
+        [disabled]="!selectedFile || title==''">Upload
+
+      </button>
+    </div>
+
+    <div class="buttons">
+    </div>
+  </form>
+  <div class="file-progress">
+    <div>
+      <label>MP3 upload: {{ uploadProgress > 0 ? uploadProgress : 0 }} %</label>
+      <progress [value]="uploadProgress > 0 ? uploadProgress : 0" max="100"></progress>
+    </div>
+    <div>
+      <label>IMG upload: {{ imageUploadProgress > 0 ? imageUploadProgress : 0 }} %</label>
+      <progress [value]="imageUploadProgress > 0 ? imageUploadProgress : 0" max="100"></progress>
+    </div>
+  </div>
+  <div class="tags-section">
+    <div class="avTags" id="flex">
+      <button *ngFor="let tag of availableTags" type="button" (click)="toggleTag(tag)"
+        [id]="selectedTags.includes(tag) ? 'in' : ''">
+        {{ tag }}
+      </button>
+    </div>
+  </div>
+</div>

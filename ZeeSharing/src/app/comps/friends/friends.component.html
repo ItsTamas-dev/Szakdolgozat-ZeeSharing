@@ -1,0 +1,28 @@
+<h2>Friend List</h2>
+<div class="item" *ngFor="let friend of friends_data" (click)="friendClicked(friend.username)">
+    <div class="img">
+        <img [src]="friend['picture']" alt="Friend picture" class="" />
+    </div>
+    <span>{{ friend.username }}</span>
+    <div class="icons">
+        <fa-icon [icon]="faCircle" [ngClass]="{ 'green': hasUnread(friend.username) }"></fa-icon>
+    </div>
+</div>
+<h2>Follows</h2>
+<div class="item" *ngFor="let friend of followedPerformers" (click)="performerClicked(friend.username)">
+    <div class="img">
+        <img [src]="friend['picture']" alt="Friend picture" class="" />
+    </div>
+    <span>{{ friend.username }}</span>
+</div>
+<h2>Friend Requests</h2>
+<div class="request" *ngFor="let friend of friendRequests">
+    <div class="img">
+        <img [src]="friend['profilePicture']" alt="Friend picture" class="" />
+    </div>
+    <span>{{ friend.User1 }}</span>
+    <div class="icons">
+        <fa-icon [icon]="faCheck" class="green" (click)="addFriend(friend.User1)"></fa-icon>
+        <fa-icon [icon]="faX" class="red" (click)="deleteRequest(friend.User1)"></fa-icon>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+h2 {
+    margin-bottom: 1em;
+    cursor: default;
+}
+
+.file-upload {
+    height: calc(100vh - 330px);
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.file-upload::-webkit-scrollbar {
+    width: 0px;
+}
+
+.inputs {
+    display: flex;
+    gap: 2%;
+    border-bottom: 1px solid #183D3D;
+    padding-bottom: 1em;
+}
+
+.File-img,
+.File-title,
+.File-music {
+    width: 32%;
+    display: flex;
+    justify-content: center;
+}
+
+.upload {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+input[type="text"] {
+    background-color: #183D3D;
+    border: none;
+    border-radius: 1em;
+    padding-left: 1em;
+    color: #ffffff;
+}
+
+.custom-file-upload {
+    background-color: #183D3D;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    cursor: pointer;
+    width: 150px;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.upload button {
+    transition: all 0.3s ease;
+    background-color: #183D3D;
+    color: #ffffff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 1em;
+    width: 200px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.upload button:hover {
+    background-color: #5C8374;
+}
+
+.file-progress {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.file-progress div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+progress {
+    width: 100%;
+    color: #183D3D;
+}
+
+.avTags {
+    margin-top: 5em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.avTags button {
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #183D3D;
+    color: #ffffff;
+    font-size: 1em;
+    padding: 7px 14px;
+    width: 120px;
+    border-radius: 6px;
+}
+
+#in {
+    background-color: #183D3D;
+}
+
+@media only screen and (max-width: 600px) {
+    .post-time {
+        font-size: 12px;
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
+
+    .File-img,
+    .File-title,
+    .File-music {
+        width: 100%;
+    }
+
+    .custom-file-upload {
+        width: 100%;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        height: 30px;
+    }
+}

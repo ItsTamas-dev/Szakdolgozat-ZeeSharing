@@ -1,0 +1,314 @@
+.player {
+    width: 100%;
+    background-color: #000000;
+    position: fixed;
+    bottom: 0;
+    height: 140px;
+    display: flex;
+    z-index: 11;
+}
+
+.m_data {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 1em;
+    width: 25%;
+}
+
+.m_btns {
+    width: 50%;
+}
+
+.volumediv {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+fa-icon {
+    font-size: 24px;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.m_btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.top {
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    align-items: center;
+}
+
+.top .icons {
+    display: flex;
+    gap: 1.2em;
+}
+
+.top .icons button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.top .icons button fa-icon:hover {
+    color: #183D3D;
+}
+
+.random fa-icon {
+    color: gray;
+}
+
+#toggle fa-icon {
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+#tog fa-icon {
+    color: #5C8374;
+    transition: all 0.3s ease;
+}
+
+#norep fa-icon {
+    color: gray;
+    transition: all 0.3s ease;
+}
+
+#norep fa-icon:hover {
+    color: #183D3D;
+}
+
+.bottom {
+    height: 25%;
+    position: relative;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.bottom .slide {
+    width: 100%;
+    display: flex;
+    height: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom input {
+    width: 75%;
+    height: 3px;
+    margin: 0 0.5em;
+}
+
+.m_data img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+.m_inf {
+    height: 100%;
+    padding-top: 40px;
+    padding-left: 0.5em;
+    width: 100%;
+}
+
+.m_inf .name {
+    font-size: 1.6em;
+
+    max-width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.m_inf .performer {
+    font-size: 1.2em;
+    color: #183D3D;
+}
+
+.volumediv button {
+    background-color: transparent;
+    border: none;
+}
+
+.volumediv {
+    display: flex;
+    gap: 10px
+}
+
+#volume {
+    width: 75%;
+}
+
+.volumediv fa-icon {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.volumediv fa-icon:hover {
+    color: #183D3D;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+.main {
+    height: calc(100vh - 180px);
+    position: relative;
+    padding: 1em;
+}
+
+.allsong {
+    max-height: 100%;
+    overflow-y: scroll;
+
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    color: #ffffff;
+}
+
+.item {
+    padding: 1em;
+    border-radius: 1em;
+    position: relative;
+}
+
+.img {
+    width: 250px;
+    height: 250px;
+}
+
+.img img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 1em 1em 0 0;
+    cursor: pointer;
+}
+
+.data {
+    padding: 1em;
+    background-color: rgba(24, 61, 61, 0.4);
+    text-align: center;
+    height: 75px;
+    border-radius: 0 0 1em 1em;
+    position: relative;
+}
+
+.data h3 {
+    margin-bottom: 10px;
+}
+
+.allsong::-webkit-scrollbar {
+    width: 8px;
+}
+
+.allsong::-webkit-scrollbar-thumb {
+    background-color: rgba(24, 61, 61, 0.4);
+    border-radius: 4px;
+}
+
+.allsong::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(24, 61, 61, 0.4);
+}
+
+.name {
+    color: #ffffff;
+}
+
+.data button {
+    color: #ffffff;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.data button fa-icon:hover {
+    color: #183D3D;
+}
+
+.data button fa-icon {
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.data h3 {
+    max-width: 190px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.logout {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    border: none;
+    background-color: #183D3D;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 1000000;
+}
+
+.logout:hover {
+    background-color: #0f2525;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .m_inf .name {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .m_data img {
+        height: 70px;
+        width: 70px;
+    }
+
+    .player {
+        height: 100px;
+    }
+
+    .icons fa-icon,
+    .volumediv fa-icon {
+        font-size: 1.2em;
+    }
+
+    #volume {
+        height: 3px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .m_data .m_inf {
+        display: none;
+    }
+
+    #volume {
+        width: 50%;
+    }
+}

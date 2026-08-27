@@ -1,0 +1,40 @@
+<div class="register-page">
+  <div class="container">
+    <form (ngSubmit)="onRegister()">
+      <h1>REGISTRATION</h1>
+      <div class="form-control">
+        <input type="text" id="email" [(ngModel)]="u_name" name="u_name" required placeholder="Username">
+        <span></span>
+      </div>
+      <div class="form-control">
+        <input type="email" id="email" name="email" [(ngModel)]="email" required placeholder="Email">
+        <span></span>
+      </div>
+      <div class="form-control">
+        <input type="password" id="password" name="password" [(ngModel)]="password" required placeholder="Password">
+        <span></span>
+      </div>
+      <div class="form-control">
+        <input type="password" id="re_password" name="re_password" [(ngModel)]="re_password" required
+          placeholder="Re_Password">
+        <span></span>
+      </div>
+      <div class="form-control">
+        <select name="ac_type" id="ac_type" [(ngModel)]="ac_type">
+          <option value="" disabled selected hidden>Why are you making this account?</option>
+          <option value="performer">Performer</option>
+          <option value="podcast">Podcast</option>
+          <option value="def_user">Default User</option>
+        </select>
+      </div>
+      <p *ngIf="registerError" class="error">{{ registerError }}</p>
+      <div class="links">
+        <button type="submit">Registration</button>
+        <p></p>
+        <p class="login-link">
+          Already have an account? <a (click)="navigateToLogin()">Log in</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
